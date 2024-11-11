@@ -61,4 +61,12 @@ public class Product {
     public Stock getStock() {
         return stock;
     }
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
 }

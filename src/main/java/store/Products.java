@@ -17,4 +17,8 @@ public class Products {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(PRODUCT_NOT_FOUND.getMessage()));
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
 }
