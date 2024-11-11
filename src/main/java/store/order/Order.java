@@ -54,7 +54,7 @@ public class Order {
     }
 
     public void addFreeQuantity(Integer quantity) {
-        this.freeQuantity += freeQuantity;
+        this.freeQuantity += quantity;
     }
 
     public PromotionStatus getPromotionStatus() {
@@ -71,5 +71,13 @@ public class Order {
 
     public Integer calculateTotalPrice() {
         return product.calculatePrice(totalQuantity);
+    }
+
+    public Integer calculateDiscountPrice() {
+        return product.calculatePrice(freeQuantity);
+    }
+
+    public Integer getTotalQuantity() {
+        return totalQuantity;
     }
 }

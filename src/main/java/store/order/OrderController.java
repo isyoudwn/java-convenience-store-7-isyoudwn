@@ -3,6 +3,7 @@ package store.order;
 import java.util.List;
 
 import store.Membership;
+import store.Receipt;
 import store.UserResponse;
 import store.view.InputHandler;
 
@@ -13,13 +14,13 @@ public class OrderController {
     public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor) {
         this.inputHandler = inputHandler;
         this.orderProcessor = orderProcessor;
-
     }
 
     public void order() {
         List<Order> orders = inputHandler.readItem();
         applyPromotion(orders);
         Integer discountMembership = applyMembership(orders);
+        Receipt receipt = new Receipt(orders, discountMembership);
     }
 
     public void applyPromotion(List<Order> orders) {
