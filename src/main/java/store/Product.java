@@ -21,6 +21,15 @@ public class Product {
         return promotion.calculateFreeItems(quantity, stock.getPromotionStock());
     }
 
+    public Integer calculateMissedFreeItems(Integer orderQuantity) {
+        return promotion.calculateMissedFreeItems(orderQuantity, stock.getPromotionStock());
+    }
+
+    public Integer calculateMaxApplied(Integer orderQuantity) {
+        Integer maxApplied = promotion.calculateMaxApplied(stock.getPromotionStock());
+        return Math.min(maxApplied, orderQuantity);
+    }
+
     public Integer totalStock() {
         return stock.getTotalStock();
     }

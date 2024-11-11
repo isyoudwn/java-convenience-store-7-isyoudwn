@@ -29,6 +29,30 @@ public class Order {
         return 0;
     }
 
+    public Integer calculateMissedFreeItems() {
+        return product.calculateMissedFreeItems(totalQuantity);
+    }
+
+    public Integer calculateIgnoredQuantity() {
+        Integer maxApplied = product.calculateMaxApplied(totalQuantity);
+        if (maxApplied < totalQuantity) {
+            return totalQuantity - maxApplied;
+        }
+        return 0;
+    }
+
+    public void reduceQuantity(Integer quantity) {
+        this.totalQuantity -= quantity;
+    }
+
+    public void addQuantity(Integer quantity) {
+        this.totalQuantity += quantity;
+    }
+
+    public void addFreeQuantity(Integer quantity) {
+        this.freeQuantity += freeQuantity;
+    }
+
     public PromotionStatus getPromotionStatus() {
         return promotionStatus;
     }
