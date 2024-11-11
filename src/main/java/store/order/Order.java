@@ -68,4 +68,8 @@ public class Order {
     public String getProductName() {
         return product.getName();
     }
+
+    public Integer calculateTotalPrice() {
+        return product.calculatePrice(totalQuantity);
+    }
 }

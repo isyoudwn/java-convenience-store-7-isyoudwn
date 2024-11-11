@@ -1,5 +1,7 @@
 package store.order;
 
+import java.util.List;
+import store.Membership;
 import store.UserResponse;
 import store.view.InputHandler;
 
@@ -36,5 +38,14 @@ public class OrderProcessor {
             order.addQuantity(missedFreeItems);
             order.addFreeQuantity(missedFreeItems);
         }
+    }
+
+    public Integer applyMembership(List<Order> orders, Membership membership) {
+        int total = orders.stream()
+                .filter(order -> order.getPromotionStatus() == PromotionStatus.NONE)
+                .mapToInt(Order::calculateTotalPrice)
+                .sum();
+
+        return membership.calculateDiscount(total);
     }
 }

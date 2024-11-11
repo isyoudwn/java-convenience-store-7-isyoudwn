@@ -53,4 +53,8 @@ public class Product {
     public Integer getGeneralStock() {
         return stock.getGeneralStock();
     }
+
+    public Integer calculatePrice(Integer quantity) {
+        return price * quantity;
+    }
 }

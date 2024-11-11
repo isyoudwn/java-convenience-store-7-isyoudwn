@@ -25,6 +25,10 @@ public class InputHandler {
         return handle(() -> orderInputView.notifyExtraFree(name, stock));
     }
 
+    public UserResponse askMembershipDiscount() {
+        return handle(orderInputView::askMembershipDiscount);
+    }
+
     private <T> T handle(Supplier<T> supplier) {
         while (true) {
             try {
