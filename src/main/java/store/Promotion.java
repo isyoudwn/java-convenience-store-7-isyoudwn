@@ -25,4 +25,22 @@ public class Promotion {
         LocalDateTime end = TimeUtil.toLocalDateTime(endDate);
         return now.isAfter(start) && now.isBefore(end);
     }
+
+    public Integer calculateMissedFreeItems(Integer quantity, Integer promotionStock) {
+        if (quantity < buy) {
+            return 0;
+        }
+
+        Integer group = buy + get;
+        Integer rest = quantity % group;
+
+        if (rest % get == 0 && promotionStock > 0) {
+            Integer needed = 1 + quantity;
+            if (needed > promotionStock) {
+                return 0;
+            }
+            return 1;
+        }
+        return 0;
+    }
 }
