@@ -2,7 +2,7 @@ package store.presentation.view;
 
 import java.text.DecimalFormat;
 import java.util.List;
-import store.order.Receipt;
+import store.receipt.Receipt;
 import store.order.Order;
 
 public class ReceiptView {

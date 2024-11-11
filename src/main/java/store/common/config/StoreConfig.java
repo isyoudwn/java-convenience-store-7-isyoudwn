@@ -1,7 +1,7 @@
 package store.common.config;
 
 import store.MainController;
-import store.ReceiptController;
+import store.receipt.ReceiptController;
 import store.order.OrderController;
 import store.order.OrderCreator;
 import store.presentation.view.InputHandler;

@@ -1,6 +1,7 @@
-package store.order;
+package store.receipt;
 
 import java.util.List;
+import store.order.Order;
 
 public class Receipt {
     private final List<Order> orders;

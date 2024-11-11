@@ -1,10 +1,11 @@
 package store;
 
 import store.order.OrderController;
-import store.order.Receipt;
+import store.receipt.Receipt;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
 import store.product.ProductController;
+import store.receipt.ReceiptController;
 
 public class MainController {
     private final ReceiptController receiptController;

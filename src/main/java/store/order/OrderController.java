@@ -5,6 +5,7 @@ import java.util.List;
 import store.promotion.Membership;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
+import store.receipt.Receipt;
 
 public class OrderController {
     private final InputHandler inputHandler;

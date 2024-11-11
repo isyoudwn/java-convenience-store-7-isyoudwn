@@ -1,6 +1,5 @@
-package store;
+package store.receipt;
 
-import store.order.Receipt;
 import store.presentation.view.ReceiptView;
 
 public class ReceiptController {
