@@ -57,7 +57,7 @@ public class StoreView {
             output += product.getStock().getPromotionStock() + "개 ";
         }
         if (product.getStock().getPromotionStock() <= 0) {
-            output += "재고 없음";
+            output += "재고 없음 ";
         }
         return output;
     }
