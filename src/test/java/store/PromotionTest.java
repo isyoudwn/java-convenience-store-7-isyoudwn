@@ -120,4 +120,34 @@ class PromotionTest {
 
         assertEquals(expectedMissedFreeItems, promotion.calculateMissedFreeItems(quantity, promotionStock));
     }
+
+    @Test
+    public void 무료아이템_개수를_계산한다_투플원() {
+        Promotion promotion = new Promotion(
+                "마라탕",
+                2,
+                1,
+                LocalDate.of(2024, 1, 1),
+                LocalDate.of(2040, 12, 31));
+        Integer quantity = 8;
+        Integer promotionStock = 10;
+        Integer expectedFreeItems = 2;
+
+        assertEquals(expectedFreeItems, promotion.calculateFreeItems(quantity, promotionStock));
+    }
+
+    @Test
+    public void 무료아이템_개수를_계산한다_원플원() {
+        Promotion promotion = new Promotion(
+                "마라탕",
+                1,
+                1,
+                LocalDate.of(2024, 1, 1),
+                LocalDate.of(2040, 12, 31));
+        Integer quantity = 11;
+        Integer promotionStock = 10;
+        Integer expectedFreeItems = 5;
+
+        assertEquals(expectedFreeItems, promotion.calculateFreeItems(quantity, promotionStock));
+    }
 }

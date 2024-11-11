@@ -43,4 +43,13 @@ public class Promotion {
         }
         return 0;
     }
+
+    public Integer calculateFreeItems(Integer quantity, Integer promotionStock) {
+        if (quantity < buy) {
+            return 0;
+        }
+        Integer maxQuantity = Math.min(quantity, promotionStock);
+        Integer group = maxQuantity / (buy + get);
+        return group * get;
+    }
 }
