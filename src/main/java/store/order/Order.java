@@ -99,8 +99,4 @@ public class Order {
     public Integer calculateIgnoredPrice() {
         return ignoredQuantity * product.getPrice();
     }
-
-    public Integer total() {
-        return product.totalStock();
-    }
 }
