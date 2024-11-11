@@ -30,11 +30,27 @@ public class Product {
         return Math.min(maxApplied, orderQuantity);
     }
 
+    public void reduceStock(Integer quantity) {
+        if (isInPromotion()) {
+            stock.reduceInPromotion(quantity);
+            return;
+        }
+        stock.reduceInNoPromotion(quantity);
+    }
+
     public Integer totalStock() {
         return stock.getTotalStock();
     }
 
     public String getName() {
         return name;
+    }
+
+    public Integer getPromotionStock() {
+        return stock.getPromotionStock();
+    }
+
+    public Integer getGeneralStock() {
+        return stock.getGeneralStock();
     }
 }

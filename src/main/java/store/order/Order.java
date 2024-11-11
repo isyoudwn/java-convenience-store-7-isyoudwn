@@ -41,6 +41,10 @@ public class Order {
         return 0;
     }
 
+    public void reduceStock() {
+        product.reduceStock(totalQuantity);
+    }
+
     public void reduceQuantity(Integer quantity) {
         this.totalQuantity -= quantity;
     }

@@ -40,4 +40,34 @@ class OrderTest {
         Assertions.assertEquals(PromotionStatus.ACTIVE, order.getPromotionStatus());
         Assertions.assertEquals(3, order.getFreeQuantity());
     }
+
+    @Test
+    void 프로모션_기간일_경우_프로모션_재고가_먼저_차감된다() {
+        Order order = new Order(promoProduct, 10);
+        order.reduceStock();
+        Assertions.assertEquals(0, promoProduct.getPromotionStock());
+    }
+
+    @Test
+    void 프로모션_기간일_경우_일반_재고가_먼저_차감된다() {
+        Order order = new Order(nonPromoProduct, 10);
+        order.reduceStock();
+        Assertions.assertEquals(40, nonPromoProduct.getGeneralStock());
+    }
+
+    @Test
+    void 프로모션_기간_재고가_부족한_경우_프로모션_재고가_차감되고_일반_재고가_차감된다() {
+        Order order = new Order(promoProduct, 25);
+        order.reduceStock();
+        Assertions.assertEquals(0, promoProduct.getPromotionStock());
+        Assertions.assertEquals(5, promoProduct.getGeneralStock());
+    }
+
+    @Test
+    void 프로모션이_아닐때_일반재고가_부족하면_프로모션_재고도_차감된다() {
+        Order order = new Order(nonPromoProduct, 53);
+        order.reduceStock();
+        Assertions.assertEquals(2, nonPromoProduct.getPromotionStock());
+        Assertions.assertEquals(0, nonPromoProduct.getGeneralStock());
+    }
 }
