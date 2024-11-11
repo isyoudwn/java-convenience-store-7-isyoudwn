@@ -17,10 +17,10 @@ public class StoreView {
     }
 
     private void printProduct(Product product) {
-        printProductWithoutPromotion(product);
         if (product.getPromotion() != null) {
             printProductWithPromotion(product);
         }
+        printProductWithoutPromotion(product);
     }
 
     private void printProductWithPromotion(Product product) {

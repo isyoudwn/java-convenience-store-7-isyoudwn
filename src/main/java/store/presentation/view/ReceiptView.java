@@ -9,6 +9,7 @@ public class ReceiptView {
     private static final DecimalFormat priceFormat = new DecimalFormat("#,###");
 
     public void print(Receipt receipt) {
+        System.out.println();
         printStoreName();
         printHeader();
         printOrderDetails(receipt.getOrders());
