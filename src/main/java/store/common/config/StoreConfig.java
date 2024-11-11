@@ -1,7 +1,7 @@
 package store.common.config;
 
 import store.MainController;
-import store.product.StoreController;
+import store.product.ProductController;
 import store.product.Products;
 import store.receipt.ReceiptController;
 import store.order.OrderController;
@@ -22,11 +22,11 @@ public class StoreConfig {
     }
 
     public MainController mainController() {
-        return new MainController(receiptController(), orderController(), inputHandler(), storeController());
+        return new MainController(receiptController(), orderController(), inputHandler(), productController());
     }
 
-    private StoreController storeController() {
-        return new StoreController(products, storeView());
+    private ProductController productController() {
+        return new ProductController(products, storeView());
     }
 
     private OrderController orderController() {
@@ -60,6 +60,4 @@ public class StoreConfig {
     private OrderCreator orderCreator() {
         return new OrderCreator(products);
     }
-
-
 }
