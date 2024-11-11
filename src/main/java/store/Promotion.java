@@ -52,4 +52,9 @@ public class Promotion {
         Integer group = maxQuantity / (buy + get);
         return group * get;
     }
+
+    public Integer calculateMaxApplied(Integer promotionStock) {
+        Integer groupSize = buy + get;
+        return (promotionStock / groupSize) * groupSize;
+    }
 }

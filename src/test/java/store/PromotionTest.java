@@ -150,4 +150,19 @@ class PromotionTest {
 
         assertEquals(expectedFreeItems, promotion.calculateFreeItems(quantity, promotionStock));
     }
+
+    @Test
+    public void 프로모션재고_안에서_프로모션_적용_물품_수를_계산한다() {
+        Promotion promotion = new Promotion(
+                "마라탕",
+                2,
+                1,
+                LocalDate.of(2024, 1, 1),
+                LocalDate.of(2040, 12, 31));
+        Integer promotionStock = 15;
+
+        Integer expectedMaxApplied = 15;
+
+        assertEquals(expectedMaxApplied, promotion.calculateMaxApplied(promotionStock));
+    }
 }
