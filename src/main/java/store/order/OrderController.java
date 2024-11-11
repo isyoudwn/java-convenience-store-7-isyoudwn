@@ -6,14 +6,17 @@ import store.Membership;
 import store.Receipt;
 import store.UserResponse;
 import store.view.InputHandler;
+import store.view.ReceiptView;
 
 public class OrderController {
     private final InputHandler inputHandler;
     private final OrderProcessor orderProcessor;
+    private final ReceiptView receiptView;
 
-    public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor) {
+    public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor, ReceiptView receiptView) {
         this.inputHandler = inputHandler;
         this.orderProcessor = orderProcessor;
+        this.receiptView = receiptView;
     }
 
     public void order() {
@@ -21,6 +24,7 @@ public class OrderController {
         applyPromotion(orders);
         Integer discountMembership = applyMembership(orders);
         Receipt receipt = new Receipt(orders, discountMembership);
+        receiptView.print(receipt);
     }
 
     public void applyPromotion(List<Order> orders) {
