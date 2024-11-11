@@ -20,35 +20,35 @@ public class StoreConfig {
         return new MainController(receiptController(), productController(), orderController(), inputHandler());
     }
 
-    public OrderController orderController() {
+    private OrderController orderController() {
         return new OrderController(inputHandler(), orderProcessor());
     }
 
-    public ProductController productController() {
+    private ProductController productController() {
         return new ProductController(new StoreView(), products());
     }
 
-    public ReceiptController receiptController() {
+    private ReceiptController receiptController() {
         return new ReceiptController(new ReceiptView());
     }
 
-    public OrderProcessor orderProcessor() {
+    private OrderProcessor orderProcessor() {
         return new OrderProcessor(inputHandler());
     }
 
-    public InputHandler inputHandler() {
+    private InputHandler inputHandler() {
         return new InputHandler(orderInputView());
     }
 
-    public OrderInputView orderInputView() {
+    private OrderInputView orderInputView() {
         return new OrderInputView(orderParser(), orderCreator());
     }
 
-    public OrderParser orderParser() {
+    private OrderParser orderParser() {
         return new OrderParser();
     }
 
-    public OrderCreator orderCreator() {
+    private OrderCreator orderCreator() {
         return new OrderCreator(products());
     }
 
