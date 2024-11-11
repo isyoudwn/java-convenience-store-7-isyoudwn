@@ -2,7 +2,6 @@ package store;
 
 import store.order.OrderController;
 import store.order.OrderResultDto;
-import store.receipt.Receipt;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
 import store.product.ProductController;

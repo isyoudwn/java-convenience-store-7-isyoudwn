@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 import store.presentation.UserResponse;
 import store.order.Order;
 
-
 public class InputHandler {
     private final OrderInputView orderInputView;
 

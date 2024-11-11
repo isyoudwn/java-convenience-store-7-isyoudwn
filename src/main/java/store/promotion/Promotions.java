@@ -3,7 +3,6 @@ package store.promotion;
 import static store.common.Exceptions.PROMOTION_NOT_FOUND;
 
 import java.util.List;
-import store.promotion.Promotion;
 
 public class Promotions {
     private final List<Promotion> promotions;

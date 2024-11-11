@@ -24,7 +24,6 @@ public class OrderInputView {
         return orderCreator.createOrders(orderRequests);
     }
 
-
     public UserResponse notifyIgnoredPromotion(String name, Integer stock) {
         System.out.println("현재 " + name + " " + stock + "개는 프로모션 할인이 적용되지 않습니다. 그래도 구매하시겠습니까? (Y/N)");
         return UserResponse.of(Console.readLine());
