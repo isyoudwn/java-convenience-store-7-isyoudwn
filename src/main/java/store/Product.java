@@ -57,4 +57,8 @@ public class Product {
     public Integer calculatePrice(Integer quantity) {
         return price * quantity;
     }
+
+    public Stock getStock() {
+        return stock;
+    }
 }

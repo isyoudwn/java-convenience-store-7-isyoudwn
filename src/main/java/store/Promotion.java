@@ -57,4 +57,8 @@ public class Promotion {
         Integer groupSize = buy + get;
         return (promotionStock / groupSize) * groupSize;
     }
+
+    public String getName() {
+        return name;
+    }
 }
