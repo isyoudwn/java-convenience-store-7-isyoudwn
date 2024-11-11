@@ -35,7 +35,7 @@ public class Promotion {
         Integer group = buy + get;
         Integer rest = quantity % group;
 
-        if (rest % get == 0 && promotionStock > 0) {
+        if (rest != 0 && rest % get == 0 && promotionStock > 0) {
             Integer needed = 1 + quantity;
             if (needed > promotionStock) {
                 return 0;

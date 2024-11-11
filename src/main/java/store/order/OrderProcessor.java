@@ -18,13 +18,14 @@ public class OrderProcessor {
     }
 
     public void checkIgnoredQuantity(Order order) {
-        Integer ignored = order.calculateIgnoredQuantity();
+        Integer ignored = order.getIgnoredQuantity();
         if (ignored == 0) {
             return;
         }
         UserResponse response = inputHandler.notifyIgnoredPromotion(order.getProductName(), ignored);
         if (response == UserResponse.NO) {
             order.reduceQuantity(ignored);
+            order.reduceIgnoredQuantity(ignored);
         }
     }
 
@@ -41,11 +42,15 @@ public class OrderProcessor {
     }
 
     public Integer applyMembership(List<Order> orders, Membership membership) {
-        int total = orders.stream()
-                .filter(order -> order.getPromotionStatus() == PromotionStatus.NONE)
-                .mapToInt(Order::calculateTotalPrice)
-                .sum();
-
+        int total = 0;
+        for (Order order : orders) {
+            if (order.getIgnoredQuantity() != 0) {
+                total += order.calculateIgnoredPrice();
+            }
+            if (order.getPromotionStatus() == PromotionStatus.NONE) {
+                total += order.getTotalQuantity();
+            }
+        }
         return membership.calculateDiscount(total);
     }
 }

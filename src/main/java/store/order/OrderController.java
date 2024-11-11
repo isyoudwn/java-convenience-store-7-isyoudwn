@@ -2,6 +2,7 @@ package store.order;
 
 import java.util.List;
 
+
 import store.promotion.Membership;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
@@ -11,7 +12,8 @@ public class OrderController {
     private final OrderProcessor orderProcessor;
 
 
-    public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor) {
+    public OrderController(InputHandler inputHandler,
+                           OrderProcessor orderProcessor) {
         this.inputHandler = inputHandler;
         this.orderProcessor = orderProcessor;
     }
@@ -22,6 +24,7 @@ public class OrderController {
         Integer discountMembership = applyMembership(orders);
         return OrderResultDto.of(orders, discountMembership);
     }
+
 
     public void applyPromotion(List<Order> orders) {
         for (Order order : orders) {

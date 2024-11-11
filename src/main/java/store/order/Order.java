@@ -7,12 +7,14 @@ public class Order {
     private Integer totalQuantity;
     private final PromotionStatus promotionStatus;
     private Integer freeQuantity;
+    private Integer ignoredQuantity;
 
     public Order(Product product, Integer totalQuantity) {
         this.product = product;
         this.totalQuantity = totalQuantity;
         this.promotionStatus = promotionStatus();
         this.freeQuantity = calculateFreeItems();
+        this.ignoredQuantity = calculateIgnoredQuantity();
     }
 
     private PromotionStatus promotionStatus() {
@@ -34,7 +36,12 @@ public class Order {
     }
 
     public Integer calculateIgnoredQuantity() {
+        if (promotionStatus == PromotionStatus.NONE) {
+            return 0;
+        }
+
         Integer maxApplied = product.calculateMaxApplied(totalQuantity);
+
         if (maxApplied < totalQuantity) {
             return totalQuantity - maxApplied;
         }
@@ -79,5 +86,21 @@ public class Order {
 
     public Integer getTotalQuantity() {
         return totalQuantity;
+    }
+
+    public Integer getIgnoredQuantity() {
+        return ignoredQuantity;
+    }
+
+    public void reduceIgnoredQuantity(Integer quantity) {
+        ignoredQuantity -= quantity;
+    }
+
+    public Integer calculateIgnoredPrice() {
+        return ignoredQuantity * product.getPrice();
+    }
+
+    public Integer total() {
+        return product.totalStock();
     }
 }

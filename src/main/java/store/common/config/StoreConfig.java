@@ -1,6 +1,8 @@
 package store.common.config;
 
 import store.MainController;
+import store.product.StoreController;
+import store.product.Products;
 import store.receipt.ReceiptController;
 import store.order.OrderController;
 import store.order.OrderCreator;
@@ -10,22 +12,29 @@ import store.order.OrderParser;
 import store.order.OrderProcessor;
 import store.presentation.view.ReceiptView;
 import store.presentation.view.StoreView;
-import store.product.ProductController;
-import store.product.Products;
-import store.promotion.Promotions;
 
 public class StoreConfig {
 
+    private final Products products;
+
+    public StoreConfig(Products products) {
+        this.products = products;
+    }
+
     public MainController mainController() {
-        return new MainController(receiptController(), productController(), orderController(), inputHandler());
+        return new MainController(receiptController(), orderController(), inputHandler(), storeController());
+    }
+
+    private StoreController storeController() {
+        return new StoreController(products, storeView());
     }
 
     private OrderController orderController() {
         return new OrderController(inputHandler(), orderProcessor());
     }
 
-    private ProductController productController() {
-        return new ProductController(new StoreView(), products());
+    private StoreView storeView() {
+        return new StoreView();
     }
 
     private ReceiptController receiptController() {
@@ -49,15 +58,8 @@ public class StoreConfig {
     }
 
     private OrderCreator orderCreator() {
-        return new OrderCreator(products());
+        return new OrderCreator(products);
     }
 
-    private Products products() {
-        Promotions promotions = promotions();
-        return new Products(new ProductLoader(promotions).productFileHandle());
-    }
 
-    private Promotions promotions() {
-        return new Promotions(PromotionLoader.loadPromotionsFromFile());
-    }
 }

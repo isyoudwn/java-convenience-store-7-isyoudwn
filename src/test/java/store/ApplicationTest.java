@@ -54,6 +54,30 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 프로모션을_적용() {
+        assertNowTest(() -> {
+            run("[콜라-10]", "Y", "N", "N");
+            assertThat(output().replaceAll("\\s", "")).contains("내실돈7,000");
+        }, LocalDate.of(2024, 11, 11).atStartOfDay());
+    }
+
+    @Test
+    void 프로모션_기간에_수량이_부족해서_무시되는_애들을_구매하면_맴버십_할인이_적용되어야_한다() {
+        assertNowTest(() -> {
+            run("[컵라면-11]", "Y", "Y", "N");
+            assertThat(output().replaceAll("\\s", "")).contains("내실돈13,090");
+        }, LocalDate.of(2024, 11, 11).atStartOfDay());
+    }
+
+    @Test
+    void 프로모션_기간에_수량이_부족해서_무시되는_애들을_빼면_멤버십_할인이_안된다() {
+        assertNowTest(() -> {
+            run("[사이다-8]", "N", "Y", "N");
+            assertThat(output().replaceAll("\\s", "")).contains("내실돈4,000");
+        }, LocalDate.of(2024, 11, 11).atStartOfDay());
+    }
+
+    @Test
     void 예외_테스트() {
         assertSimpleTest(() -> {
             runException("[컵라면-12]", "N", "N");

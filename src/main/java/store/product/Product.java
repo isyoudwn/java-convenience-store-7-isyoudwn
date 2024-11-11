@@ -32,7 +32,7 @@ public class Product {
         return Math.min(maxApplied, orderQuantity);
     }
 
-    public void reduceStock(Integer quantity) {
+    public void reduceStock(int quantity) {
         if (isInPromotion()) {
             stock.reduceInPromotion(quantity);
             return;
