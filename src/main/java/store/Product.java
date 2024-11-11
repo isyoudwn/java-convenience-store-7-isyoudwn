@@ -12,4 +12,20 @@ public class Product {
         this.stock = stock;
         this.promotion = promotion;
     }
+
+    public Boolean isInPromotion() {
+        return promotion != null && promotion.isPromotionActive() && stock.getPromotionStock() > 0;
+    }
+
+    public Integer calculateFreeItems(Integer quantity) {
+        return promotion.calculateFreeItems(quantity, stock.getPromotionStock());
+    }
+
+    public Integer totalStock() {
+        return stock.getTotalStock();
+    }
+
+    public String getName() {
+        return name;
+    }
 }
