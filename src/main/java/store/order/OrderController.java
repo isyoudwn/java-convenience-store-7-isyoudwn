@@ -17,11 +17,11 @@ public class OrderController {
         this.orderProcessor = orderProcessor;
     }
 
-    public Receipt order() {
+    public OrderResultDto order() {
         List<Order> orders = inputHandler.readItem();
         applyPromotion(orders);
         Integer discountMembership = applyMembership(orders);
-        return new Receipt(orders, discountMembership);
+        return OrderResultDto.of(orders, discountMembership);
     }
 
     public void applyPromotion(List<Order> orders) {

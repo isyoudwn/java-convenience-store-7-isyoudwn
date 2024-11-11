@@ -1,5 +1,6 @@
 package store.receipt;
 
+import store.order.OrderResultDto;
 import store.presentation.view.ReceiptView;
 
 public class ReceiptController {
@@ -9,7 +10,8 @@ public class ReceiptController {
         this.receiptView = receiptView;
     }
 
-    public void displayReceipt(Receipt receipt) {
+    public void displayReceipt(OrderResultDto orderResult) {
+        Receipt receipt = new Receipt(orderResult.orders(), orderResult.discountMembership());
         receiptView.print(receipt);
     }
 }

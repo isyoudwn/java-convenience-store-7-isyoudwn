@@ -1,6 +1,7 @@
 package store;
 
 import store.order.OrderController;
+import store.order.OrderResultDto;
 import store.receipt.Receipt;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
@@ -23,8 +24,8 @@ public class MainController {
 
     public void run() {
         productController.displayProducts();
-        Receipt receipt = orderController.order();
-        receiptController.displayReceipt(receipt);
+        OrderResultDto orderResult = orderController.order();
+        receiptController.displayReceipt(orderResult);
         retry();
     }
 
