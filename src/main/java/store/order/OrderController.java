@@ -2,13 +2,12 @@ package store.order;
 
 import java.util.List;
 
-import store.Membership;
-import store.Products;
-import store.Receipt;
-import store.UserResponse;
-import store.view.InputHandler;
-import store.view.ReceiptView;
-import store.view.StoreView;
+import store.promotion.Membership;
+import store.product.Products;
+import store.presentation.UserResponse;
+import store.presentation.view.InputHandler;
+import store.presentation.view.ReceiptView;
+import store.presentation.view.StoreView;
 
 public class OrderController {
     private final InputHandler inputHandler;

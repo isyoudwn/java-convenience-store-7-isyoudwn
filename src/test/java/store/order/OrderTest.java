@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import store.Product;
-import store.Promotion;
-import store.Stock;
+import store.product.Product;
+import store.promotion.Promotion;
+import store.product.Stock;
 
 class OrderTest {
 

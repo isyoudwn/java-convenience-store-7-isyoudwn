@@ -1,14 +1,14 @@
-package store.config;
+package store.common.config;
 
-import store.Products;
+import store.product.Products;
 import store.order.OrderController;
 import store.order.OrderCreator;
-import store.view.InputHandler;
-import store.view.OrderInputView;
+import store.presentation.view.InputHandler;
+import store.presentation.view.OrderInputView;
 import store.order.OrderParser;
 import store.order.OrderProcessor;
-import store.view.ReceiptView;
-import store.view.StoreView;
+import store.presentation.view.ReceiptView;
+import store.presentation.view.StoreView;
 
 public class StoreConfig {
     private final Products products;

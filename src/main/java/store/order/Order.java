@@ -1,6 +1,6 @@
 package store.order;
 
-import store.Product;
+import store.product.Product;
 
 public class Order {
     private final Product product;

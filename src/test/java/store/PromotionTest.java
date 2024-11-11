@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
+import store.promotion.Promotion;
 
 class PromotionTest {
     @Test

@@ -1,8 +1,8 @@
-package store.view;
+package store.presentation.view;
 
 import java.text.DecimalFormat;
-import store.Product;
-import store.Products;
+import store.product.Product;
+import store.product.Products;
 
 public class StoreView {
     private static final DecimalFormat priceFormat = new DecimalFormat("#,###");

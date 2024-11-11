@@ -1,9 +1,9 @@
 package store.order;
 
 import java.util.List;
-import store.Membership;
-import store.UserResponse;
-import store.view.InputHandler;
+import store.promotion.Membership;
+import store.presentation.UserResponse;
+import store.presentation.view.InputHandler;
 
 public class OrderProcessor {
     private final InputHandler inputHandler;

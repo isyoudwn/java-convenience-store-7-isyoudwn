@@ -1,4 +1,4 @@
-package store.config;
+package store.common.config;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import store.Product;
-import store.Promotion;
-import store.Promotions;
-import store.Stock;
+import store.product.Product;
+import store.promotion.Promotion;
+import store.promotion.Promotions;
+import store.product.Stock;
 
 public class ProductConfig {
     private final Promotions promotions;

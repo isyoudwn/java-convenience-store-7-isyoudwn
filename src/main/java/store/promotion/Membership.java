@@ -1,4 +1,6 @@
-package store;
+package store.promotion;
+
+import store.presentation.UserResponse;
 
 public enum Membership {
     MEMBER(30),

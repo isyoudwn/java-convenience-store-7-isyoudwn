@@ -1,8 +1,8 @@
-package store.view;
+package store.presentation.view;
 
 import java.util.List;
 import java.util.function.Supplier;
-import store.UserResponse;
+import store.presentation.UserResponse;
 import store.order.Order;
 
 

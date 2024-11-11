@@ -1,8 +1,8 @@
-package store.view;
+package store.presentation.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import store.UserResponse;
+import store.presentation.UserResponse;
 import store.order.Order;
 import store.order.OrderCreator;
 import store.order.OrderParser;

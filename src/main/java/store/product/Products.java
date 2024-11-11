@@ -1,8 +1,9 @@
-package store;
+package store.product;
 
-import static store.Exceptions.PRODUCT_NOT_FOUND;
+import static store.common.Exceptions.PRODUCT_NOT_FOUND;
 
 import java.util.List;
+import store.product.Product;
 
 public class Products {
     private final List<Product> products;

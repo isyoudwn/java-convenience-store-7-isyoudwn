@@ -1,4 +1,4 @@
-package store;
+package store.product;
 
 public class Stock {
     private int generalStock;

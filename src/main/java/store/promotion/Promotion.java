@@ -1,8 +1,9 @@
-package store;
+package store.promotion;
 
 import camp.nextstep.edu.missionutils.DateTimes;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import store.common.TimeUtil;
 
 public class Promotion {
     private final String name;

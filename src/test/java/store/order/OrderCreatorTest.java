@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import store.Product;
-import store.Products;
-import store.Promotion;
-import store.Stock;
+import store.product.Product;
+import store.product.Products;
+import store.promotion.Promotion;
+import store.product.Stock;
 
 class OrderCreatorTest {
     private List<Product> items = new ArrayList<>();

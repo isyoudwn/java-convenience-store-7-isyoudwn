@@ -1,6 +1,6 @@
-package store;
+package store.presentation;
 
-import static store.Exceptions.INVALID_INPUT;
+import static store.common.Exceptions.INVALID_INPUT;
 
 public enum UserResponse {
     YES("Y"), NO("N");

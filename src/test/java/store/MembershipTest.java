@@ -1,6 +1,8 @@
 package store;
 
 import org.junit.jupiter.api.Test;
+import store.promotion.Membership;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MembershipTest {

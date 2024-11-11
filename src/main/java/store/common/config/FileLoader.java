@@ -1,4 +1,4 @@
-package store.config;
+package store.common.config;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

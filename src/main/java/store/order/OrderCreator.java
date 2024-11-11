@@ -1,11 +1,11 @@
 package store.order;
 
-import static store.Exceptions.INSUFFICIENT_STOCK;
+import static store.common.Exceptions.INSUFFICIENT_STOCK;
 
 import java.util.ArrayList;
 import java.util.List;
-import store.Product;
-import store.Products;
+import store.product.Product;
+import store.product.Products;
 
 public class OrderCreator {
     private final Products products;

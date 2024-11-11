@@ -1,9 +1,11 @@
 package store;
 
-import store.config.ProductConfig;
-import store.config.PromotionConfig;
-import store.config.StoreConfig;
+import store.common.config.ProductConfig;
+import store.common.config.PromotionConfig;
+import store.common.config.StoreConfig;
 import store.order.OrderController;
+import store.product.Products;
+import store.promotion.Promotions;
 
 public class Application {
     public static void main(String[] args) {

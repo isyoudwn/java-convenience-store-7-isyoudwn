@@ -1,4 +1,4 @@
-package store;
+package store.common;
 
 public enum Exceptions {
     PRODUCT_NOT_FOUND("[ERROR] 존재하지 않는 상품입니다. 다시 입력해 주세요."),

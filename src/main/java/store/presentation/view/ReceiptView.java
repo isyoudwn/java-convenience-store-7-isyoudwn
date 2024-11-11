@@ -1,8 +1,8 @@
-package store.view;
+package store.presentation.view;
 
 import java.text.DecimalFormat;
 import java.util.List;
-import store.Receipt;
+import store.order.Receipt;
 import store.order.Order;
 
 public class ReceiptView {

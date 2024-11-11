@@ -1,9 +1,9 @@
-package store.config;
+package store.common.config;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import store.Promotion;
+import store.promotion.Promotion;
 
 public class PromotionConfig {
     public static List<Promotion> loadPromotionsFromFile() {
