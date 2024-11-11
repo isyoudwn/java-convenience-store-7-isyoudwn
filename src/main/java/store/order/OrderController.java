@@ -25,6 +25,14 @@ public class OrderController {
         Integer discountMembership = applyMembership(orders);
         Receipt receipt = new Receipt(orders, discountMembership);
         receiptView.print(receipt);
+        retry();
+    }
+
+    private void retry() {
+        UserResponse response = inputHandler.askContinue();
+        if (UserResponse.YES == response) {
+            order();
+        }
     }
 
     public void applyPromotion(List<Order> orders) {

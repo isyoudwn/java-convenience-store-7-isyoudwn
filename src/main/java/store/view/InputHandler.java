@@ -29,6 +29,10 @@ public class InputHandler {
         return handle(orderInputView::askMembershipDiscount);
     }
 
+    public UserResponse askContinue() {
+        return handle(orderInputView::askContinue);
+    }
+
     private <T> T handle(Supplier<T> supplier) {
         while (true) {
             try {
