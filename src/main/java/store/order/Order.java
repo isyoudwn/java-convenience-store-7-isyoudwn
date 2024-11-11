@@ -36,4 +36,8 @@ public class Order {
     public Integer getFreeQuantity() {
         return freeQuantity;
     }
+
+    public String getProductName() {
+        return product.getName();
+    }
 }
