@@ -1,6 +1,7 @@
 package store.common.config;
 
-import store.product.Products;
+import store.MainController;
+import store.ReceiptController;
 import store.order.OrderController;
 import store.order.OrderCreator;
 import store.presentation.view.InputHandler;
@@ -9,16 +10,26 @@ import store.order.OrderParser;
 import store.order.OrderProcessor;
 import store.presentation.view.ReceiptView;
 import store.presentation.view.StoreView;
+import store.product.ProductController;
+import store.product.Products;
+import store.promotion.Promotions;
 
 public class StoreConfig {
-    private final Products products;
 
-    public StoreConfig(Products products) {
-        this.products = products;
+    public MainController mainController() {
+        return new MainController(receiptController(), productController(), orderController(), inputHandler());
     }
 
     public OrderController orderController() {
-        return new OrderController(inputHandler(), orderProcessor(), receiptView(), storeView(), products);
+        return new OrderController(inputHandler(), orderProcessor());
+    }
+
+    public ProductController productController() {
+        return new ProductController(new StoreView(), products());
+    }
+
+    public ReceiptController receiptController() {
+        return new ReceiptController(new ReceiptView());
     }
 
     public OrderProcessor orderProcessor() {
@@ -27,10 +38,6 @@ public class StoreConfig {
 
     public InputHandler inputHandler() {
         return new InputHandler(orderInputView());
-    }
-
-    public ReceiptView receiptView() {
-        return new ReceiptView();
     }
 
     public OrderInputView orderInputView() {
@@ -42,10 +49,15 @@ public class StoreConfig {
     }
 
     public OrderCreator orderCreator() {
-        return new OrderCreator(products);
+        return new OrderCreator(products());
     }
 
-    public StoreView storeView() {
-        return new StoreView();
+    private Products products() {
+        Promotions promotions = promotions();
+        return new Products(new ProductLoader(promotions).productFileHandle());
+    }
+
+    private Promotions promotions() {
+        return new Promotions(PromotionLoader.loadPromotionsFromFile());
     }
 }

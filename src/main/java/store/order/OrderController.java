@@ -3,44 +3,24 @@ package store.order;
 import java.util.List;
 
 import store.promotion.Membership;
-import store.product.Products;
 import store.presentation.UserResponse;
 import store.presentation.view.InputHandler;
-import store.presentation.view.ReceiptView;
-import store.presentation.view.StoreView;
 
 public class OrderController {
     private final InputHandler inputHandler;
     private final OrderProcessor orderProcessor;
-    private final ReceiptView receiptView;
-    private final StoreView storeView;
 
-    private final Products products;
 
-    public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor, ReceiptView receiptView,
-                           StoreView storeView, Products products) {
+    public OrderController(InputHandler inputHandler, OrderProcessor orderProcessor) {
         this.inputHandler = inputHandler;
         this.orderProcessor = orderProcessor;
-        this.receiptView = receiptView;
-        this.storeView = storeView;
-        this.products = products;
     }
 
-    public void order() {
-        storeView.printProducts(products);
+    public Receipt order() {
         List<Order> orders = inputHandler.readItem();
         applyPromotion(orders);
         Integer discountMembership = applyMembership(orders);
-        Receipt receipt = new Receipt(orders, discountMembership);
-        receiptView.print(receipt);
-        retry();
-    }
-
-    private void retry() {
-        UserResponse response = inputHandler.askContinue();
-        if (UserResponse.YES == response) {
-            order();
-        }
+        return new Receipt(orders, discountMembership);
     }
 
     public void applyPromotion(List<Order> orders) {

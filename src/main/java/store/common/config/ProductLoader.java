@@ -13,10 +13,10 @@ import store.promotion.Promotion;
 import store.promotion.Promotions;
 import store.product.Stock;
 
-public class ProductConfig {
+public class ProductLoader {
     private final Promotions promotions;
 
-    public ProductConfig(Promotions promotions) {
+    public ProductLoader(Promotions promotions) {
         this.promotions = promotions;
     }
 
